@@ -1,0 +1,37 @@
+{
+  "id": 24727041,
+  "name": "Protect Tags",
+  "target": "tag",
+  "source_type": "Repository",
+  "source": "er-shubhendu-ee/shutarubetaarjaal",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "refs/tags/*"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "creation"
+    },
+    {
+      "type": "update"
+    }
+  ],
+  "bypass_actors": [
+    {
+      "actor_id": 38459865,
+      "actor_type": "User",
+      "bypass_mode": "always"
+    }
+  ]
+}
