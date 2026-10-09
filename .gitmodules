@@ -1,0 +1,3 @@
+[submodule "shutarubetaarjaal/service/service_pipe"]
+	path = shutarubetaarjaal/service/service_pipe
+	url = https://github.com/er-shubhendu-ee/isr-safe-data-pipe.git
