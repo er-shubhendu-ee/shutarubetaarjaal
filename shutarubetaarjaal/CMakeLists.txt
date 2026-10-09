@@ -34,23 +34,23 @@ file(MAKE_DIRECTORY "${SBJ_ARTIFACT_DIR}")
 # Core library
 # ---------------------------------------------------------------------------
 
-add_library(shutarubetaarjaal STATIC
-    shutarubetaarjaal.c
+add_library(sbj STATIC
+    sbj.c
 )
 
-target_include_directories(shutarubetaarjaal
+target_include_directories(sbj
     PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}"
 )
 
 # Keep the static library directly under build/
-set_target_properties(shutarubetaarjaal PROPERTIES
+set_target_properties(sbj PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${SBJ_BUILD_DIR}"
 )
 
 # Multi-config generators such as Visual Studio
 foreach(CONFIG Debug Release RelWithDebInfo MinSizeRel)
-    set_target_properties(shutarubetaarjaal PROPERTIES
+    set_target_properties(sbj PROPERTIES
         ARCHIVE_OUTPUT_DIRECTORY_${CONFIG} "${SBJ_BUILD_DIR}"
     )
 endforeach()
@@ -71,29 +71,29 @@ else()
 
     message(STATUS "SHUTARUBETAARJAAL: CONSOLE build")
 
-    add_executable(shutarubetaarjaal_win_console
+    add_executable(sbj_win_console
         port/win-console/main.c
     )
 
-    target_include_directories(shutarubetaarjaal_win_console
+    target_include_directories(sbj_win_console
         PRIVATE
             "${CMAKE_CURRENT_SOURCE_DIR}"
             "${CMAKE_CURRENT_SOURCE_DIR}/port/win-console"
     )
 
-    target_link_libraries(shutarubetaarjaal_win_console
+    target_link_libraries(sbj_win_console
         PRIVATE
-            shutarubetaarjaal
+            sbj
     )
 
     # Keep executable directly under build/
-    set_target_properties(shutarubetaarjaal_win_console PROPERTIES
+    set_target_properties(sbj_win_console PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${SBJ_BUILD_DIR}"
     )
 
     # Multi-config generators such as Visual Studio
     foreach(CONFIG Debug Release RelWithDebInfo MinSizeRel)
-        set_target_properties(shutarubetaarjaal_win_console PROPERTIES
+        set_target_properties(sbj_win_console PROPERTIES
             RUNTIME_OUTPUT_DIRECTORY_${CONFIG} "${SBJ_BUILD_DIR}"
         )
     endforeach()

@@ -4,7 +4,7 @@ add_executable(shutarubetaarjaal_test
 
 target_link_libraries(shutarubetaarjaal_test
     PRIVATE
-        shutarubetaarjaal
+        sbj
 )
 
 target_include_directories(shutarubetaarjaal_test
@@ -24,5 +24,5 @@ endforeach()
 
 add_test(
     NAME shutarubetaarjaal_test
-    COMMAND shutarubetaarjaal_test
+    COMMAND sbj_test
 )
